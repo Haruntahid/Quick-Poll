@@ -18,7 +18,7 @@ public class VoteController {
 
 
     @PostMapping("polls/{id}/votes")
-    public ResponseEntity<Vote> createVote(@PathVariable long id, @RequestBody Vote vote) {
+    public ResponseEntity<?> createVote(@PathVariable long id, @RequestBody Vote vote) {
         vote = voteRepository.save(vote);
         // Set the headers for the newly created resource
         HttpHeaders responseHeaders = new HttpHeaders();

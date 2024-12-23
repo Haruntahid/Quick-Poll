@@ -1,16 +1,14 @@
 package com.app.quick_poll.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.hibernate.boot.model.naming.Identifier;
 
 @Entity
+@Table(name="option_table")
 public class Option {
 
     @Id
-    @GeneratedValue
-    @Column(name = "OPTION_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name="OPTION_VALUE")

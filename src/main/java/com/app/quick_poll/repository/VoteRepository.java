@@ -8,11 +8,17 @@ public interface VoteRepository extends CrudRepository<Vote, Long> {
 
 
 
-    @Query(value="select v.* from Option o, Vote v where o.id = ? 1 and v.id = o.id", nativeQuery = true)
+//    @Query(value="select v.* from option_table o, Vote v where o.id = ? 1 and v.id = o.id", nativeQuery = true)
+//    public Iterable<Vote> findByPoll(Long id);
+
+    @Query(value = "SELECT v.* " +
+            "FROM option_table o, vote v " +
+            "WHERE o.poll_id = ?1 " +
+            "AND v.option_id = o.id", nativeQuery = true)
     public Iterable<Vote> findByPoll(Long id);
 
 
-//    @Query(value = "SELECT v FROM Vote v JOIN Option o ON v.id = o.id WHERE o.id = ?1", nativeQuery = true)
+//    @Query(value = "SELECT * FROM vote v where o.id = ?1", nativeQuery = true)
 //    public Iterable<Vote> findByPoll(Long id);
 
 }
