@@ -25,6 +25,7 @@ public class ComputeResultController {
     }
 
     @GetMapping("/computeresult")
+
     public ResponseEntity<?> computeResult(@RequestParam Long pollId) {
         System.out.println("Received pollId: " + pollId);
         VoteResult voteResult = new VoteResult();

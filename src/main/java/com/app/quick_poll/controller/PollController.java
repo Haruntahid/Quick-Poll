@@ -4,6 +4,7 @@ package com.app.quick_poll.controller;
 import com.app.quick_poll.domain.Poll;
 import com.app.quick_poll.exception.ResourceNotFoundException;
 import com.app.quick_poll.repository.PollRepository;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,7 @@ import java.net.URI;
 import java.util.Optional;
 
 @RestController
+@Tag(name = "Poll Controller", description="Poll create,update,delete API's")
 public class PollController {
 
 
