@@ -11,15 +11,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.inject.Inject;
 import java.util.HashMap;
 import java.util.Map;
 
 @RestController
 public class ComputeResultController {
 
-    @Inject
+
     private VoteRepository voteRepository;
+
+    public ComputeResultController(VoteRepository voteRepository) {
+        this.voteRepository = voteRepository;
+    }
 
     @GetMapping("/computeresult")
     public ResponseEntity<?> computeResult(@RequestParam Long pollId) {
